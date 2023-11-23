@@ -1,3 +1,7 @@
+import 'package:bangun_datar_kelas_c/page/LingkaranPage.dart';
+import 'package:bangun_datar_kelas_c/page/PersegiPage.dart';
+import 'package:bangun_datar_kelas_c/page/PersegiPanjangPage.dart';
+import 'package:bangun_datar_kelas_c/page/SegitigaPage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,16 +23,33 @@ class HomePage extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                Expanded(child: CustomMenu(title: "Persegi", imageAsset: "assets/persegi.jpg")),
-                Expanded(child: CustomMenu(title: "Persegi Panjang", imageAsset: "assets/persegi panjang.jpg")),
+                Expanded(child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPage()));
+                    },
+                    child: CustomMenu(title: "Persegi", imageAsset: "assets/persegi.jpg"))),
+
+                Expanded(child: InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PersegiPanjangPage()));
+                    },
+                    child: CustomMenu(title: "Persegi Panjang", imageAsset: "assets/persegi panjang.jpg"))),
               ],
             ),
           ),
           Expanded(
               child: Row(
                 children: [
-                  Expanded(child: CustomMenu(title: "Segitiga", imageAsset: "assets/segitiga.jpg")),
-                  Expanded(child: CustomMenu(title: "Lingkaran", imageAsset: "assets/lingkaran.jpg")),
+                  Expanded(child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SegitigaPage()));
+                      },
+                      child: CustomMenu(title: "Segitiga", imageAsset: "assets/segitiga.jpg"))),
+                  Expanded(child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LingkaranPage()));
+                      },
+                      child: CustomMenu(title: "Lingkaran", imageAsset: "assets/lingkaran.jpg"))),
                 ],
               ),
           ),
@@ -49,12 +70,8 @@ class CustomMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16,vertical: 8
-      ),
-      margin: EdgeInsets.symmetric(
-        horizontal: 16,vertical: 8
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
+      margin: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.blue.shade400,
